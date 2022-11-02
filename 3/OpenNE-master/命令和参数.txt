@@ -1,0 +1,59 @@
+python -m openne --method deepWalk --input data/new/PositiveSample_Train.txt --graph-format edgelist --output Behavior.txt --representation-size 64
+
+
+
+
+
+python -m openne --method hope --input data/new/9905pairs.txt --graph-format edgelist --output HOPE_128_Behavior.txt --representation-size 128
+
+python -m openne --method grarep --input data/new/9905pairs.txt --graph-format edgelist --output Behavior.txt --representation-size 64
+
+
+python -m openne --method node2vec --input data/new/9905pairs.txt --graph-format edgelist --output node2vec_128_Behavior.txt --representation-size 128
+python -m openne --method deepWalk --input data/new/9905pairs.txt --graph-format edgelist --output walker_128_Behavior.txt --representation-size 128
+python -m openne --method lle --input data/new/9905pairs.txt --graph-format edgelist --output lle_128_Behavior.txt --representation-size 128
+python -m openne --method graph --input data/new/9905pairs.txt --graph-format edgelist --output graph_128_Behavior.txt --representation-size 128
+
+python -m openne --method tadw --label-file data/RNA/label.txt --input data/RNA/edgelist.txt --graph-format edgelist --feature-file data/RNA/F.features  --output cora_128_Behavior.txt --representation-size 32
+
+python -m openne --method tadw --label-file data/RNA1/label.txt --input data/RNA1/edgelist.txt --graph-format edgelist --feature-file data/RNA1/A.features  --output cora_128_Behavior.txt --representation-size 32
+
+
+python -m openne --method tadw --label-file data/fin_RNA/label.txt --input data/fin_RNA/edgelist.txt --graph-format edgelist --feature-file data/fin_RNA/64.features  --output data/fin_RNA/64_64_Behavior.txt --representation-size 64
+python -m openne --method tadw --label-file data/fin_RNA/label.txt --input data/fin_RNA/edgelist.txt --graph-format edgelist --feature-file data/fin_RNA/128.features  --output data/fin_RNA/128_64_Behavior.txt --representation-size 64
+python -m openne --method tadw --label-file data/fin_RNA/label.txt --input data/fin_RNA/edgelist.txt --graph-format edgelist --feature-file data/fin_RNA/256.features  --output data/fin_RNA/256_64_Behavior.txt --representation-size 64
+python -m openne --method tadw --label-file data/fin_RNA/label.txt --input data/fin_RNA/edgelist.txt --graph-format edgelist --feature-file data/fin_RNA/512.features  --output data/fin_RNA/512_64_Behavior.txt --representation-size 64
+
+
+python -m openne --method tadw --label-file data/cora/cora_labels.txt --input data/cora/cora_edgelist.txt --graph-format edgelist --feature-file data/cora/cora.features  --output cora_128_Behavior.txt --representation-size 32
+--label-file LABEL_FILE
+--feature-file FEATURE_FILE
+--graph-format {adjlist,edgelist}
+
+
+--graph-format data/cora/cora_edgelist.txt
+
+
+
+
+
+
+
+
+
+
+usage: __main__.py [-h] --input INPUT [--output OUTPUT]
+                   [--number-walks NUMBER_WALKS] [--directed]
+                   [--walk-length WALK_LENGTH] [--workers WORKERS]
+                   [--representation-size REPRESENTATION_SIZE]
+                   [--window-size WINDOW_SIZE] [--epochs EPOCHS] [--p P]
+                   [--q Q] --method
+                   {node2vec,deepWalk,line,gcn,grarep,tadw,lle,hope,lap,gf,sdne}
+                   [--label-file LABEL_FILE] [--feature-file FEATURE_FILE]
+                   [--graph-format {adjlist,edgelist}]
+                   [--negative-ratio NEGATIVE_RATIO] [--weighted]
+                   [--clf-ratio CLF_RATIO] [--order ORDER] [--no-auto-save]
+                   [--dropout DROPOUT] [--weight-decay WEIGHT_DECAY]
+                   [--hidden HIDDEN] [--kstep KSTEP] [--lamb LAMB] [--lr LR]
+                   [--alpha ALPHA] [--beta BETA] [--nu1 NU1] [--nu2 NU2]
+                   [--bs BS] [--encoder-list ENCODER_LIST]
